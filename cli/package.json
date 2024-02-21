@@ -1,0 +1,84 @@
+{
+  "author": "some-things",
+  "bin": {
+    "kapps-charts-cli": "./bin/run.js"
+  },
+  "dependencies": {
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^4",
+    "@types/download": "^8.0.5",
+    "@types/recursive-readdir": "^2.2.4",
+    "@types/tar": "^6.1.11",
+    "axios": "^1.6.7",
+    "download": "^8.0.0",
+    "fs-extra": "^11.2.0",
+    "recursive-readdir": "^2.2.3",
+    "simple-git": "^3.22.0",
+    "tar": "^6.2.0",
+    "yaml": "^2.3.4"
+  },
+  "description": "oclif example Hello World CLI",
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^18",
+    "@types/yaml": "^1.9.7",
+    "chai": "^4",
+    "eslint": "^8.56.0",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4",
+    "shx": "^0.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/some-things/dkp-kommander-application-charts",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "cli",
+  "oclif": {
+    "bin": "kapps-charts-cli",
+    "dirname": "kapps-charts-cli",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "repository": "some-things/dkp-kommander-application-charts",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "npm run lint",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepare": "npm run build",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "version": "0.0.0",
+  "bugs": "https://github.com/some-things/dkp-kommander-application-charts/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
+}
